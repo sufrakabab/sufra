@@ -1,0 +1,454 @@
+/* Custom styles */
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrollbars caused by animations */
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Background Image & Overlay Styles --- */
+.section-bg {
+    background-size: cover;
+    background-position: center center;
+    position: relative; /* Needed for overlay positioning */
+    z-index: 1; /* Ensure content is above pseudo-elements if used */
+}
+
+/* The ::before pseudo-element creates the overlay */
+.section-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Default light overlay */
+    z-index: -1; /* Place overlay behind the section's content */
+}
+
+/* --- Specific Overlay Colors Per Section --- */
+/* Darker overlay for the home section (which has light text) */
+ #home.section-bg::before {
+     background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+ }
+ /* Lighter overlays for other sections (adjust rgba values as needed) */
+ #about.section-bg::before { background-color: rgba(255, 255, 255, 0.85); }
+ #services.section-bg::before { background-color: rgba(249, 250, 251, 0.9); } /* Match bg-gray-50 */
+ #menu.section-bg::before { background-color: rgba(255, 255, 255, 0.88); }
+ #contact.section-bg::before { background-color: rgba(255, 247, 237, 0.9); } /* Match bg-amber-50 */
+
+
+/* --- Keyframe Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+/* --- Animation Control Classes --- */
+/* Added by JavaScript when element is visible */
+.is-visible {
+    animation-duration: 0.8s;
+    animation-fill-mode: both; /* Keep element visible after animation */
+    animation-timing-function: ease-out;
+}
+
+/* Apply specific animation */
+.animate-fadeInUp {
+    animation-name: fadeInUp;
+}
+.animate-fadeIn {
+    animation-name: fadeIn;
+}
+
+/* --- Initial State for Elements to Animate --- */
+/* Select elements within sections and hide them initially */
+#about > div > div, #about > div > h2, #about > div > p, #about > div > a,
+#services .grid > div,
+#menu .grid > div,
+#contact .max-w-3xl > p, #contact form > div, #contact form button, #contact .text-center.mt-10 {
+    opacity: 0; /* Start hidden */
+}
+/* When .is-visible is added, opacity goes to 1 via the animation */
+#about > div > div.is-visible, #about > div > h2.is-visible, #about > div > p.is-visible, #about > div > a.is-visible,
+#services .grid > div.is-visible,
+#menu .grid > div.is-visible,
+#contact .max-w-3xl > p.is-visible, #contact form > div.is-visible, #contact form button.is-visible, #contact .text-center.mt-10.is-visible {
+    opacity: 1; /* Target state for animation */
+}
+
+/* --- General Styles --- */
+/* Style for the active navigation link */
+.nav-link-active {
+    font-weight: 600; /* Tailwind's font-semibold */
+    color: #F59E0B; /* Tailwind's amber-600 */
+}
+
+/* Apply fade-in directly to home section content container */
+/* This ensures the background is visible immediately, and only content fades in */
+#home > .container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.home-section {
+    /* Background Image */
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Layout - Using Flexbox for centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Make section at least full viewport height */
+    text-align: center;
+
+    /* Text Styling */
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Styles for content inside home */
+.home-section .content-wrapper {
+    max-width: 90%;
+    padding: 20px;
+}
+
+.home-section .logo {
+    display: block;
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto 25px auto;
+}
+
+.home-section .tagline {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.home-section .description {
+    font-size: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: lighter;
+}
+.navbar-logo .logo-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 18px; /* Adjusted font size for navbar */
+    fill: #333333;
+}
+.navbar-logo .logo-icon-skewer {
+    fill: #8D2B0B;
+}
+.navbar-logo .logo-icon-food {
+    fill: #D97706;
+    stroke: #8D2B0B;
+    stroke-width: 0.5;
+}
+/* Ensure SVG scales nicely if needed */
+.navbar-logo svg {
+     display: block; /* Prevents extra space below SVG */
+}
+
+.text-column {
+    flex: 1 1 70%; /* Grow, shrink, base width 70% (takes remaining space) */
+    /*background-color: #d8f2f2; /* Dark background for text area */
+    padding: 60px 80px; /* Generous padding inside the text column */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text block vertically */
+}
+
+.text-column h2 {
+    text-align: center;
+    font-size: 2.5rem; /* Adjust size */
+    margin-bottom: 15px;
+    font-weight: bold; /* Or adjust as needed */
+    text-transform: uppercase;
+}
+
+.text-column h3 {
+    text-align: center;
+    font-size: 1.5rem; /* Adjust size */
+    margin-bottom: 5px;
+    font-weight: normal; /* Adjust as needed */
+}
+
+.text-column .subheading {
+    text-align: center;
+    font-size: 1.1rem; /* Adjust size */
+    color: #cccccc; /* Slightly lighter color */
+    margin-bottom: 30px;
+    font-style: italic; /* Make italic */
+}
+
+.text-column .intro-paragraph {
+    text-align: center; /* Center the first paragraph */
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-weight: bold; /* Bolder intro text */
+}
+
+.text-column p {
+    font-size: 1rem; /* Standard text size */
+    margin-bottom: 20px;
+    /* text-align: justify; */ /* Optional: Justify text */
+}
+
+
+/* --- About Us Section Styling --- */
+.about-section {
+    display: flex;
+    min-height: 80vh;
+    /* Remove the default color here if it was set, as text color is handled below */
+    /* color: white;  <-- REMOVE or comment out this line */
+}
+
+/* Keep pattern column as is */
+.pattern-column {
+    flex: 0 0 30%;
+    background-image: url('images/pattern.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.text-column {
+    flex: 1 1 70%;
+    /* CHANGE Background Color to Light */
+    background-color: #f8f8f8; /* Light grey background (or use #ffffff for pure white) */
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* CHANGE Default Text Color to Dark */
+    color: #333333; /* Dark grey text color */
+}
+
+.text-column h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* Ensure text color is dark (inherits from .text-column or set explicitly) */
+    /* color: #333333; */ /* Not needed if parent .text-column sets it */
+}
+
+.text-column h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: normal;
+     /* Ensure text color is dark */
+    /* color: #333333; */
+}
+
+.text-column .subheading {
+    text-align: center;
+    font-size: 1.1rem;
+    /* CHANGE Color for subheading */
+    color: #555555; /* Slightly lighter dark grey for subheading */
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.text-column .intro-paragraph {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-weight: bold;
+     /* Ensure text color is dark */
+     /* color: #333333; */
+}
+
+.text-column p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+     /* Ensure text color is dark */
+     /* color: #333333; */
+}
+.menu-section {
+    width: 100%;        /* Section takes full width */
+    height: 200vh;       /* Section takes full viewport height */
+    padding: 40px;         /* Remove any default padding */
+    overflow: hidden;   /* Hide any potential overflow from the section itself */
+    background-image: url('images/arabian1.jpg'); /* Set pattern image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    /* Ensure box-sizing is correct (already set globally) */
+    box-sizing: border-box;
+}
+
+.menu-section iframe {
+    width: 100%;        /* Iframe fills the section width */
+    height: 100%;       /* Iframe fills the section height */
+    border: none;       /* Remove default iframe border */
+    display: block;     /* Ensure iframe behaves like a block element */
+}
+
+/* Optional: Add a background color to the section in case the iframe is slow to load */
+ .menu-section {
+    background-color: #e0e0e0;
+} 
+
+/* --- Basic Reset & Body Layout --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    /* Remove background color if set previously */
+    /* background-color: #f4f4f4; */
+}
+
+/* Add Flex Layout specifically for pages needing header-content-footer */
+.body-flex-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 200vh; /* Ensure body takes at least full viewport height */
+}
+
+/* --- Fullscreen Iframe Container Styling (menu.html) --- */
+.iframe-container-fullscreen {
+    flex-grow: 2; /* Allows this container to take up remaining vertical space */
+    display: flex; /* Use flex to make the iframe fill this container */
+    overflow: hidden; /* Prevent potential scrollbars on the container */
+    /* Add padding-top if your fixed header is part of the flow
+       If the hamburger button is truly fixed and out of flow, this isn't needed */
+    /* padding-top: 60px; */ /* Example if header had 60px height */
+}
+
+.iframe-container-fullscreen iframe {
+    flex-grow: 1; /* Make iframe fill the container */
+    width: 100%;
+    height: 75vh;
+    border: none; /* Remove default iframe border */
+    display: block;
+}
+
+
+/* --- Footer Styling --- */
+.main-footer {
+    background-color: #333; /* Dark background */
+    color: #ccc; /* Light grey text */
+    padding: 25px 20px;
+    text-align: center;
+    flex-shrink: 0; /* Prevent footer from shrinking on short content pages */
+}
+
+.social-links {
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 10px; /* Space between links */
+    font-size: 1rem; /* Adjust as needed */
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+    color: white; /* Brighter color on hover */
+}
+
+/* Styles for Font Awesome icons if used */
+/* .social-links i { font-size: 1.5rem; } */
+
+.copyright {
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+
+/* --- Call Now Button Styling --- */
+.call-now-btn {
+    position: fixed; /* Keep it fixed relative to the viewport */
+    top: 2%;       /* Align vertically with hamburger button */
+    /* Adjust right positioning to avoid overlap with hamburger */
+    /* Hamburger is at right: 20px, width: 40px. Add some space */
+    right: 40%;     /* Example: 20px (hamburger) + 40px (hamburger width) + 20px (spacing) */
+    z-index: 1001;   /* Ensure it's above other content, same level as hamburger */
+
+    /* Button Appearance */
+    background-color: #27ae60; /* Example Green color */
+    color: white;
+    padding: 10px 18px; /* Adjust padding */
+    border-radius: 25px; /* Make it pill-shaped or adjust */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex; /* Helps align icon and text if used */
+    align-items: center;
+    gap: 5px; /* Space between icon and text if used */
+}
+
+.call-now-btn:hover,
+.call-now-btn:focus {
+    background-color: #229954; /* Darker shade on hover/focus */
+    color: white;
+    transform: translateY(-1px); /* Slight lift effect */
+    outline: none;
+}
+
+/* Optional: Style for Font Awesome icon if used */
+/* .call-now-btn i { font-size: 1rem; } */
+
+
+/* --- Responsive Adjustments (Consideration) --- */
+@media (max-width: 480px) {
+    /* On very small screens, the two buttons might be too close */
+    .call-now-btn {
+        /* Option 1: Reduce size/padding */
+         padding: 8px 12px;
+         font-size: 0.8rem;
+         right: 70px; /* Adjust spacing */
+        /* Option 2: Hide text, show only icon */
+        /* .call-now-btn span { display: none; } */
+        /* .call-now-btn { padding: 8px 10px; right: 70px; } */
+        /* Option 3: Stack them or move one (more complex) */
+    }
+    /* Adjust hamburger position if needed */
+    /* .hamburger-btn { right: 15px; } */
+}
+
+/* --- Keep all other existing CSS rules --- */
+/* ... */
+
+
+/* --- Keep all other existing CSS rules for nav, sections, forms etc. --- */
+/* ... Make sure rules for .main-nav, .hamburger-btn, .nav-menu are present ... */
+/* ... Keep rules for .hero-section, .about-section etc. for index.html ... */
+/* ... Keep rules for .contact-page-content, form styles etc. for contact.html ... */
+
+/* --- Keep all other CSS rules, including @media query --- */
+/* ... */

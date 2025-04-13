@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sufra Kabab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-amber-600 hover:text-amber-700">Sufra Kabab</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="text-gray-600 hover:text-amber-600 nav-link" data-section="home">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-amber-600 nav-link" data-section="about">About Us</a>
+                <a href="#services" class="text-gray-600 hover:text-amber-600 nav-link" data-section="services">Services</a>
+                <a href="menu.html" class="text-gray-600 hover:text-amber-600 nav-link" data-section="menu">Menu</a>
+                <a href="#contact" class="text-gray-600 hover:text-amber-600 nav-link" data-section="contact">Contact</a>
+                
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white pb-3">
+            <a href="#home" class="block px-6 py-2 text-gray-600 hover:bg-amber-50 nav-link" data-section="home">Home</a>
+            <a href="#about" class="block px-6 py-2 text-gray-600 hover:bg-amber-50 nav-link" data-section="about">About Us</a>
+            <a href="#services" class="block px-6 py-2 text-gray-600 hover:bg-amber-50 nav-link" data-section="services">Services</a>
+            <a href="menu.html" class="block px-6 py-2 text-gray-600 hover:bg-amber-50 nav-link" data-section="menu">Menu</a>
+            <a href="#contact" class="block px-6 py-2 text-gray-600 hover:bg-amber-50 nav-link" data-section="contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="home-section" ;">
+        <a href="tel:+1XXXXXXXXXX" class="call-now-btn" aria-label="Call Us Now"><span>Call Now</span></a>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            
+            <img src="images/logo.png" alt="Sufra Kabab Logo" class="logo">
+            <p class="text-lg md:text-xl mb-8">Sufra of Spices, Stories, and Shared Smiles!</p>
+            <p class="text-lg md:text-xl mb-7">[Sufra AKA dastarkhwan:  A spread of food typically on a cloth, where people
+                gather to eat and eat as a family or a community]</p>
+            <a href="https://forms.gle/rCEQtWXcfkJitLvt7" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300">Order Now</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="pattern-column"></div>
+        <div class="text-column">
+             <h2>Welcome to Sufra Kabab</h2>
+             <p class="subheading"><em>Savor Tradition, Enjoy Halal</em></p>
+             <p class="intro-paragraph">
+                Savor authentic Indian halal cuisine with our signature Sufra Kabab and a variety of mouthwatering kebabs, grilled to perfection!
+             </p>
+             <p>
+                At Sufra Kabab, food is more than just a meal—it’s a blessing, a tradition, and a way to bring hearts closer. Rooted in the age-old practice of eating together and sharing food over a Sufra or a dastarkhwan, our catering service is meant to create moments of connection, warmth, and celebration through our food.
+             </p>
+             <p>
+                At Sufra Kabab, we are dedicated to bringing you authentic Indian halal cuisine, crafted with passion and tradition. We use time-honored recipes and the finest ingredients to create mouthwatering kebabs and flavorful dishes that transport your taste buds with every bite. From special events and family gatherings to a simple craving for home-cooked goodness, our catering services deliver the rich, comforting flavors of Indian cuisine straight to your table. Experience the warmth of tradition and the joy of exceptional food with sufra kabab.
+             </p>
+        </div>
+    </section>
+
+    <section id="services" class="section-bg py-16 md:py-24" style="background-image: url('images/catering.jpg');">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">Our Catering Services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="images/corporate.jpg" alt="corporate event" class="w-full h-48 object-cover">
+                    <div class="text-amber-600 mb-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Corporate Events</h3>
+                    <p class="text-gray-600">Impress your clients and colleagues...</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="images/wedding.jpg" alt="corporate event" class="w-full h-48 object-cover">
+                     <div class="text-amber-600 mb-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg></div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Weddings & Celebrations</h3>
+                    <p class="text-gray-600">Make your special day unforgettable...</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="images/private.jpg" alt="corporate event" class="w-full h-48 object-cover">
+                     <div class="text-amber-600 mb-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" /></svg></div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Private Gatherings</h3>
+                    <p class="text-gray-600">From intimate dinners to backyard BBQs...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="menu" class="section-bg py-16 md:py-24" style="background-image: url('images/background.jpg');">
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center">Menu Highlights</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="images/samosa.jpg" alt="Appetizer" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/400x250/FFFBEB/B45309?text=Image+Not+Available'">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Gourmet Appetizers</h3>
+                        <p class="text-gray-600 text-sm">Samosas, pakoras and more...</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="images/biryani.jpg" alt="Main Course" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/400x250/FEF3C7/B45309?text=Image+Not+Available'">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Signature Main Courses</h3>
+                        <p class="text-gray-600 text-sm">Kababs, Biryanis, Pulaos...</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="images/dessert.jpg" alt="Dessert" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/400x250/FFFBEB/B45309?text=Image+Not+Available'">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Decadent Desserts</h3>
+                        <p class="text-gray-600 text-sm">Kheer, Shahi Tukra, Balushahi...</p>
+                    </div>
+                </div>
+            </div>
+             <div class="text-center mt-12">
+                 <a href="menu.html" class="bg-white/80 px-3 py-1 rounded text-amber-700 hover:text-amber-800 hover:bg-white font-semibold shadow">View Full Menu &rarr;</a>
+             </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-bg py-16 md:py-24" style="background-image: url('images/contact.jpg');">
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center">Get in Touch</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-lg">
+                <p class="text-center text-gray-600 mb-8">Ready to plan your next event? Contact us directly.</p>
+               
+                <div class="text-center mt-10 pt-8 border-t border-gray-200">
+                    <p class="text-gray-700 font-medium mb-2">Reach us directly:</p>
+                    <p class="text-gray-600">Phone: <a href="tel:+15551234567" class="text-amber-600 hover:underline">(555) 123-4567</a></p>
+                    <p class="text-gray-600">Email: <a href="mailto:info@sufrakabab.com" class="text-amber-600 hover:underline">info@sufrakabab.com</a></p>
+                    <p class="text-gray-600 mt-2">Serving the Log Angeles Area</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="current-year"></span> Delicious Bites Catering. All Rights Reserved.</p>
+            <div class="mt-4 space-x-4">
+                 <a href="#" class="hover:text-white">Facebook</a>
+                 <a href="#" class="hover:text-white">Instagram</a>
+                 <a href="#" class="hover:text-white">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>
