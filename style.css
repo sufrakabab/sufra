@@ -397,12 +397,12 @@ body {
 
 
 /* --- Call Now Button Styling --- */
-.call-now-btn {
+call-now-btn {
     position: fixed; /* Keep it fixed relative to the viewport */
-    top: 2%;       /* Align vertically with hamburger button */
+    top: 1%;       /* Align vertically with hamburger button */
     /* Adjust right positioning to avoid overlap with hamburger */
     /* Hamburger is at right: 20px, width: 40px. Add some space */
-    right: 40%;     /* Example: 20px (hamburger) + 40px (hamburger width) + 20px (spacing) */
+    right: 48%;     /* Example: 20px (hamburger) + 40px (hamburger width) + 20px (spacing) */
     z-index: 1001;   /* Ensure it's above other content, same level as hamburger */
 
     /* Button Appearance */
@@ -430,14 +430,14 @@ body {
 
 .order-now-btn {
     position: fixed; /* Keep it fixed relative to the viewport */
-    top: 2%;       /* Align vertically with hamburger button */
+    bottom: 15%;       /* Align vertically with hamburger button */
     /* Adjust right positioning to avoid overlap with hamburger */
     /* Hamburger is at right: 20px, width: 40px. Add some space */
-    right: 50%;     /* Example: 20px (hamburger) + 40px (hamburger width) + 20px (spacing) */
+    right: 48%;     /* Example: 20px (hamburger) + 40px (hamburger width) + 20px (spacing) */
     z-index: 1001;   /* Ensure it's above other content, same level as hamburger */
 
     /* Button Appearance */
-    background-color: #d38b26; /* Example Green color */
+    background-color: #D97706; /* Example Green color */
     color: white;
     padding: 10px 18px; /* Adjust padding */
     border-radius: 25px; /* Make it pill-shaped or adjust */
@@ -458,10 +458,6 @@ body {
     transform: translateY(-1px); /* Slight lift effect */
     outline: none;
 }
-
-/* Optional: Style for Font Awesome icon if used */
-/* .call-now-btn i { font-size: 1rem; } */
-
 
 /* --- Responsive Adjustments (Consideration) --- */
 @media (max-width: 480px) {
