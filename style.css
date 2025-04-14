@@ -488,3 +488,34 @@ body {
     font-size: xx-large;
     font-family: "Special Gothic Expanded One", sans-serif; ;
 }
+/* Target the specific list using its class */
+.checkmark-list {
+  list-style: none; /* Remove the default bullet points (dots, circles, etc.) */
+  padding-left: 0;  /* Remove the default browser padding on the ul */
+}
+
+/* Style each list item */
+.checkmark-list li {
+  padding-left: 1.8em; /* Add padding to the left of the text to make space for the checkmark */
+  margin-bottom: 0.5em; /* Optional: Add some space between list items */
+  position: relative;   /* Crucial: Establishes a positioning context for the ::before pseudo-element */
+}
+
+/* Create and style the checkmark using ::before */
+.checkmark-list li::before {
+  content: '✓'; /* The checkmark character (you can also use ✔ or ✅) */
+  /* Alternative using emoji: content: '✅'; */
+
+  position: absolute; /* Position the checkmark relative to the li */
+  left: 0;          /* Place it at the very left edge of the li (within its padding) */
+  top: 0;           /* Align it vertically (adjust slightly if needed, e.g., top: 0.1em;) */
+
+  color: green;     /* Set the color of the checkmark */
+  font-weight: bold;/* Optional: Make the checkmark bolder */
+  font-size: 1.1em; /* Optional: Adjust the size relative to the list item text */
+
+  /* Ensure consistent width for alignment (optional but good practice) */
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+}
