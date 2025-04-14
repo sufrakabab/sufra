@@ -397,7 +397,7 @@ body {
 
 
 /* --- Call Now Button Styling --- */
-call-now-btn {
+.call-now-btn {
     position: fixed; /* Keep it fixed relative to the viewport */
     top: 1%;       /* Align vertically with hamburger button */
     /* Adjust right positioning to avoid overlap with hamburger */
