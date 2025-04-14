@@ -54,28 +54,9 @@
     </footer>
 
 
-    <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const navMenu = document.getElementById('navMenu');
-        const menuLinks = document.querySelectorAll('.nav-menu a');
 
-        function toggleMenu() {
-            navMenu.classList.toggle('menu-open');
-            hamburgerBtn.classList.toggle('active');
-            const isExpanded = navMenu.classList.contains('menu-open');
-            hamburgerBtn.setAttribute('aria-expanded', isExpanded);
-        }
+    <script src="script.js" defer></script>
 
-        hamburgerBtn.addEventListener('click', toggleMenu);
-
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenu.classList.contains('menu-open')) {
-                    toggleMenu();
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>
