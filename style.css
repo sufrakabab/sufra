@@ -396,7 +396,7 @@ body {
 }
 
 
-/* --- Call Now Button Styling --- */
+/* --- Call Now Button Styling --- 
 .call-now-btn {
     position: fixed; /* Keep it fixed relative to the viewport */
     top: 1%;       /* Align vertically with hamburger button */
@@ -427,7 +427,7 @@ body {
     transform: translateY(-1px); /* Slight lift effect */
     outline: none;
 }
-
+*/
 .order-now-btn {
     position: fixed; /* Keep it fixed relative to the viewport */
     bottom: 12%;       /* Align vertically with hamburger button */
