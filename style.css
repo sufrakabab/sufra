@@ -400,10 +400,10 @@ body {
 
 .order-now-btn {
     position: fixed; /* Keep it fixed relative to the viewport */
-    bottom: 12%;       /* Align vertically with hamburger button */
+    bottom: 8%;       /* Align vertically with hamburger button */
     /* Adjust right positioning to avoid overlap with hamburger */
     /* Hamburger is at right: 20px, width: 40px. Add some space */
-    right: 48%;     /* Example: 20px (hamburger) + 40px (hamburger width) + 20px (spacing) */
+    right: 45%;     /* Example: 20px (hamburger) + 40px (hamburger width) + 20px (spacing) */
     z-index: 1001;   /* Ensure it's above other content, same level as hamburger */
 
     /* Button Appearance */
@@ -428,6 +428,10 @@ body {
     transform: translateY(-1px); /* Slight lift effect */
     outline: none;
 }
+
+/* Optional: Style for Font Awesome icon if used */
+/* .call-now-btn i { font-size: 1rem; } */
+
 
 /* --- Responsive Adjustments (Consideration) --- */
 @media (max-width: 480px) {
