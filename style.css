@@ -396,37 +396,7 @@ body {
 }
 
 
-/* --- Call Now Button Styling --- 
-.call-now-btn {
-    position: fixed; /* Keep it fixed relative to the viewport */
-    top: 1%;       /* Align vertically with hamburger button */
-    /* Adjust right positioning to avoid overlap with hamburger */
-    /* Hamburger is at right: 20px, width: 40px. Add some space */
-    right: 58%;     /* Example: 20px (hamburger) + 40px (hamburger width) + 20px (spacing) */
-    z-index: 1001;   /* Ensure it's above other content, same level as hamburger */
 
-    /* Button Appearance */
-    background-color: #27ae60; /* Example Green color */
-    color: white;
-    padding: 10px 18px; /* Adjust padding */
-    border-radius: 25px; /* Make it pill-shaped or adjust */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: inline-flex; /* Helps align icon and text if used */
-    align-items: center;
-    gap: 5px; /* Space between icon and text if used */
-}
-
-.call-now-btn:hover,
-.call-now-btn:focus {
-    background-color: #229954; /* Darker shade on hover/focus */
-    color: white;
-    transform: translateY(-1px); /* Slight lift effect */
-    outline: none;
-}
 */
 .order-now-btn {
     position: fixed; /* Keep it fixed relative to the viewport */
