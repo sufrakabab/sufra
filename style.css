@@ -483,3 +483,8 @@ body {
   width: 1em;
   text-align: center;
 }
+.halal-logo {
+    height: 60px; /* Adjust size as needed */
+    width: auto;  /* Maintain aspect ratio */
+    display: block; /* Ensure it behaves as a block element */
+}
