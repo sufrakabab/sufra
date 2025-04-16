@@ -130,7 +130,7 @@ html {
 
 .fixed-logo-img {
     position: absolute;
-    top: 20px;    /* Adjust distance from top edge (accounts for padding) */
+    top: 50px;    /* Adjust distance from top edge (accounts for padding) */
     right: 40px;  /* Adjust distance from right edge (accounts for padding) */
 
     /* Adjust Size for a corner logo */
