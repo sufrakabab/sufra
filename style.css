@@ -188,7 +188,7 @@ html {
     font-size: 2.5rem; /* Adjust size */
     margin-bottom: 15px;
     font-weight: bold; /* Or adjust as needed */
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 .text-column h3 {
@@ -229,13 +229,7 @@ html {
     /* color: white;  <-- REMOVE or comment out this line */
 }
 
-/* Keep pattern column as is */
-.pattern-column {
-    flex: 0 0 30%;
-    background-image: url('images/pattern1.jpg');
-    background-size: cover;
-    background-position: center;
-}
+
 
 .text-column {
     flex: 1 1 70%;
