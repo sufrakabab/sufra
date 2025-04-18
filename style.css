@@ -401,23 +401,25 @@ body {
     z-index: 1001;   /* Ensure it's above other content, same level as hamburger */
 
     /* Button Appearance */
-    background-color: #D97706; /* Example Green color */
-    color: white;
-    padding: 10px 18px; /* Adjust padding */
-    border-radius: 25px; /* Make it pill-shaped or adjust */
+    background-color: #fde966; /* Example Green color */
+    color: rgb(19, 17, 17);
+    padding: 12px 24px; /* Adjust padding */
+    border-radius: 30px; /* Make it pill-shaped or adjust */
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);;
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-flex; /* Helps align icon and text if used */
     align-items: center;
     gap: 5px; /* Space between icon and text if used */
+
+
 }
 
 .order-now-btn:hover,
 .order-now-btn:focus {
-    background-color: #d38b26; /* Darker shade on hover/focus */
+    background-color: #e4e1dd; /* Darker shade on hover/focus */
     color: white;
     transform: translateY(-1px); /* Slight lift effect */
     outline: none;
@@ -448,7 +450,7 @@ body {
     top: 135px;
     right: 5px;
     position: relative;
-    margin: 10px;
+    margin: 15px;
     font-size: xx-large;
     font-family: "Special Gothic Expanded One", sans-serif; ;
 }
@@ -485,9 +487,42 @@ body {
 }
 .halal-logo {
     position: absolute;
-    top: 50px;    /* Align top with Sufra logo */
-    left: 40px;   /* Position from left edge */
+    top: 7px;    /* Align top with Sufra logo */
+    left: 4px;   /* Position from left edge */
     height: 60px; /* Adjust size as needed */
     width: auto;  /* Maintain aspect ratio */
-    z-index: 5;   /* Match Sufra logo */
+    z-index: 1001;   /* Match Sufra logo */
+}
+
+
+.contact-buttons-container {
+    display: flex;
+    gap: 2px; /* Space between buttons */
+    padding: 10px; /* Space from the top */
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    z-index: 1001;
+}
+
+.call-button {
+    background-color: #007bff; /* Blue color for call */
+}
+
+.whatsapp-button {
+    background-color: #25D366; /* Green color for WhatsApp */
+}
+
+.icon {
+    
+    font-size: 1.2em; /* Adjust icon size */
 }
