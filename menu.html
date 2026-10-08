@@ -1,92 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <!-- Google tag (gtag.js) --> 
+    <!-- Google tag (gtag.js) --> 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXLW5CL3C1"></script> 
-    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VXLW5CL3C1'); </script>
-    <!-- End of Google Anlaytics tag--->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VXLW5CL3C1');
+    </script>
+    <!-- End Google tag -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sufra Kabab</title>
+    <title>Catering Menu | Sufra Kabab</title>
+    <meta name="description" content="Explore the official catering menu for Sufra Kabab. Handcrafted kebabs, aromatic biryanis, curries, and traditional desserts in Los Angeles and San Diego.">
+    <link rel="canonical" href="https://www.sufrakabab.com/menu.html">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sufrakabab.com/menu.html">
+    <meta property="og:title" content="Catering Menu | Sufra Kabab">
+    <meta property="og:description" content="Explore our authentic Halal-certified catering menu featuring signature kebabs, biryanis, and sweets.">
+    <meta property="og:image" content="images/logo-2.png">
+
+    <!-- Fonts & Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-   
-
+    <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <img src="images/Halal_logo.svg.png" alt="Halal Certified Logo" class="halal-logo">
-            <a href="#" class="text-2xl font-bold text-amber-600 hover:text-amber-700">Sufra Kabab</a>
+            <div class="flex items-center space-x-3">
+                <img src="images/Halal_logo.svg.png" alt="Halal Certified Logo" class="halal-logo">
+                <a href="index.html#home" class="text-2xl font-bold text-amber-600 hover:text-amber-700 transition">Sufra Kabab</a>
+            </div>
 
+            <!-- Quick Contact Action Buttons -->
             <div class="contact-buttons-container">
-                <a href="tel:+17607500872" class="contact-button call-button">
+                <a href="tel:+17607500872" class="contact-button call-button" aria-label="Call Sufra Kabab">
                     <i class="fas fa-phone icon"></i>
                 </a>
-                <a href="https://wa.me/17607500872" target="_blank" class="contact-button whatsapp-button">
+                <a href="https://wa.me/17607500872" target="_blank" rel="noopener noreferrer" class="contact-button whatsapp-button" aria-label="Chat on WhatsApp">
                     <i class="fab fa-whatsapp icon"></i>
                 </a>
             </div>
 
-
+            <!-- Desktop Navigation Links -->
             <div class="hidden md:flex space-x-6">
                 <a href="index.html#home" class="text-gray-600 hover:text-amber-600 nav-link" data-section="home">Home</a>
                 <a href="index.html#about" class="text-gray-600 hover:text-amber-600 nav-link" data-section="about">About Us</a>
                 <a href="index.html#services" class="text-gray-600 hover:text-amber-600 nav-link" data-section="services">Services</a>
-                <a href="menu.html" class="text-gray-600 hover:text-amber-600 nav-link" data-section="menu">Menu</a>
+                <a href="menu.html" class="text-amber-600 font-semibold nav-link" data-section="menu">Menu</a>
                 <a href="index.html#contact" class="text-gray-600 hover:text-amber-600 nav-link" data-section="contact">Contact</a>
-                
             </div>
+
+            <!-- Mobile Menu Toggle Button -->
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none" aria-label="Toggle mobile menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden bg-white pb-3">
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white pb-3 border-t border-gray-100" aria-hidden="true">
             <a href="index.html#home" class="block px-6 py-2 text-gray-600 hover:bg-amber-50 nav-link" data-section="home">Home</a>
             <a href="index.html#about" class="block px-6 py-2 text-gray-600 hover:bg-amber-50 nav-link" data-section="about">About Us</a>
             <a href="index.html#services" class="block px-6 py-2 text-gray-600 hover:bg-amber-50 nav-link" data-section="services">Services</a>
-            <a href="menu.html" class="block px-6 py-2 text-gray-600 hover:bg-amber-50 nav-link" data-section="menu">Menu</a>
+            <a href="menu.html" class="block px-6 py-2 text-amber-600 font-semibold bg-amber-50 nav-link" data-section="menu">Menu</a>
             <a href="index.html#contact" class="block px-6 py-2 text-gray-600 hover:bg-amber-50 nav-link" data-section="contact">Contact</a>
         </div>
     </nav>
 
-    <main class="iframe-container-fullscreen">
-     <!----This is where the embedded code from canva goes -->  
-        <div style="position: relative; width: 100%; height: 0; padding-top: 129.4118%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAGkjuU32RY/UmUCZd3SGeWYPfkd6OZHfw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-       
-    <!-- End of Canva code ---->
+    <!-- Main Content: Embedded Digital Canva Menu -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="relative w-full overflow-hidden rounded-xl shadow-lg bg-white" style="padding-top: 129.4118%;">
+                <iframe 
+                    loading="lazy" 
+                    class="absolute inset-0 w-full h-full border-0"
+                    src="https://www.canva.com/design/DAGkjuU32RY/UmUCZd3SGeWYPfkd6OZHfw/view?embed" 
+                    allowfullscreen="allowfullscreen" 
+                    allow="fullscreen"
+                    title="Sufra Kabab Digital Menu">
+                </iframe>
+            </div>
+
+            <!-- Call to action below menu -->
+            <div class="text-center mt-8">
+                <a href="https://forms.gle/rCEQtWXcfkJitLvt7" target="_blank" rel="noopener noreferrer" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full shadow transition duration-200">
+                    Place a Catering Order
+                </a>
+            </div>
+        </div>
     </main>
 
-    <footer class="main-footer">
-        <div class="social-links">
-            <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a> |
-            <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a> |
-            <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="current-year"></span> Sufra Kabab. All Rights Reserved.</p>
+            <p class="text-sm text-gray-400 mt-1">Part of Tasba LLC</p>
+            <div class="mt-4 space-x-6">
+                <a href="#" class="hover:text-amber-400 transition" aria-label="Facebook">Facebook</a>
+                <a href="#" class="hover:text-amber-400 transition" aria-label="Instagram">Instagram</a>
+                <a href="#" class="hover:text-amber-400 transition" aria-label="Twitter">Twitter</a>
             </div>
-        <p class="copyright">&copy; 2025 Sufra Kabab. All Rights Reserved.</p>
+        </div>
     </footer>
 
-
-
     <script src="script.js" defer></script>
-
-
 </body>
 </html>

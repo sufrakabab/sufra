@@ -1,23 +1,30 @@
-/* Custom styles */
-body {
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scrollbars caused by animations */
+/* ==========================================================================
+   Sufra Kabab Stylesheet
+   ========================================================================== */
+
+/* --- Base & Reset --- */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
-/* Smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
 
-/* --- Background Image & Overlay Styles --- */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Section Backgrounds & Overlays --- */
 .section-bg {
     background-size: cover;
     background-position: center center;
-    position: relative; /* Needed for overlay positioning */
-    z-index: 1; /* Ensure content is above pseudo-elements if used */
+    position: relative;
+    z-index: 1;
 }
 
-/* The ::before pseudo-element creates the overlay */
 .section-bg::before {
     content: "";
     position: absolute;
@@ -25,21 +32,29 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.8); /* Default light overlay */
-    z-index: -1; /* Place overlay behind the section's content */
+    background-color: rgba(255, 255, 255, 0.88);
+    z-index: -1;
 }
 
-/* --- Specific Overlay Colors Per Section --- */
-/* Darker overlay for the home section (which has light text) */
- #home.section-bg::before {
-     background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
- }
- /* Lighter overlays for other sections (adjust rgba values as needed) */
- #about.section-bg::before { background-color: rgba(255, 255, 255, 0.85); }
- #services.section-bg::before { background-color: rgba(249, 250, 251, 0.9); } /* Match bg-gray-50 */
- #menu.section-bg::before { background-color: rgba(255, 255, 255, 0.88); }
- #contact.section-bg::before { background-color: rgba(255, 247, 237, 0.9); } /* Match bg-amber-50 */
+#home.section-bg::before {
+    background-color: rgba(0, 0, 0, 0.35);
+}
 
+#about.section-bg::before {
+    background-color: rgba(255, 255, 255, 0.88);
+}
+
+#services.section-bg::before {
+    background-color: rgba(249, 250, 251, 0.92);
+}
+
+#menu.section-bg::before {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#contact.section-bg::before {
+    background-color: rgba(255, 247, 237, 0.92);
+}
 
 /* --- Keyframe Animations --- */
 @keyframes fadeIn {
@@ -50,479 +65,239 @@ html {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Start slightly lower */
+        transform: translateY(24px);
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* End at original position */
+        transform: translateY(0);
     }
 }
 
-/* --- Animation Control Classes --- */
-/* Added by JavaScript when element is visible */
-.is-visible {
-    animation-duration: 0.8s;
-    animation-fill-mode: both; /* Keep element visible after animation */
-    animation-timing-function: ease-out;
+.animate-target {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Apply specific animation */
-.animate-fadeInUp {
-    animation-name: fadeInUp;
-}
-.animate-fadeIn {
-    animation-name: fadeIn;
+.animate-target.is-visible {
+    animation: fadeInUp 0.75s ease-out forwards;
+    opacity: 1;
 }
 
-/* --- Initial State for Elements to Animate --- */
-/* Select elements within sections and hide them initially */
-#about > div > div, #about > div > h2, #about > div > p, #about > div > a,
-#services .grid > div,
-#menu .grid > div,
-#contact .max-w-3xl > p, #contact form > div, #contact form button, #contact .text-center.mt-10 {
-    opacity: 0; /* Start hidden */
-}
-/* When .is-visible is added, opacity goes to 1 via the animation */
-#about > div > div.is-visible, #about > div > h2.is-visible, #about > div > p.is-visible, #about > div > a.is-visible,
-#services .grid > div.is-visible,
-#menu .grid > div.is-visible,
-#contact .max-w-3xl > p.is-visible, #contact form > div.is-visible, #contact form button.is-visible, #contact .text-center.mt-10.is-visible {
-    opacity: 1; /* Target state for animation */
+/* --- Navigation & Active Links --- */
+.nav-link {
+    transition: color 0.2s ease;
 }
 
-/* --- General Styles --- */
-/* Style for the active navigation link */
 .nav-link-active {
-    font-weight: 600; /* Tailwind's font-semibold */
-    color: #F59E0B; /* Tailwind's amber-600 */
+    font-weight: 600;
+    color: #d97706 !important;
 }
 
-/* Apply fade-in directly to home section content container */
-/* This ensures the background is visible immediately, and only content fades in */
-#home > .container {
-    animation: fadeIn 1s ease-in-out;
+.halal-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
 }
 
+/* --- Quick Action Contact Buttons --- */
+.contact-buttons-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.contact-button:hover {
+    transform: scale(1.1);
+    opacity: 0.95;
+}
+
+.call-button {
+    background-color: #2563eb;
+}
+
+.whatsapp-button {
+    background-color: #22c55e;
+}
+
+.contact-button .icon {
+    font-size: 1rem;
+}
+
+/* --- Hero Section --- */
 .home-section {
-    /* Background Image */
-    background-image:  url('images/background3.jpg');
+    background-image: url('images/background3.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    /* Layout - Using Flexbox for centering */
     display: flex;
-    min-height: 100vh; /* Make section at least full viewport height */
-    text-align: left;
-
-    /* Text Styling */
-    color: rgb(21, 18, 18);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    min-height: 85vh;
+    position: relative;
+    align-items: center;
+    justify-content: center;
 }
-
-/* Styles for content inside home */
-.home-section .content-wrapper {
-    max-width: 90%;
-    padding: 20px;
-}
-
-
 
 .fixed-logo-img {
     position: absolute;
-    top: 50px;    /* Adjust distance from top edge (accounts for padding) */
-    right: 40px;  /* Adjust distance from right edge (accounts for padding) */
-
-    /* Adjust Size for a corner logo */
-    height: 33%; /* Example height, adjust as needed */
+    top: 36px;
+    right: 36px;
+    height: 28%;
+    max-height: 200px;
     width: auto;
     z-index: 5;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25));
 }
 
-
-
-.home-section .tagline {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 15px;
+.home_top_left {
+    position: absolute;
+    top: 100px;
+    left: 36px;
+    margin: 0;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #18181b;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+    font-family: "Special Gothic Expanded One", sans-serif;
 }
 
-.home-section .description {
-    font-size: 1rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: lighter;
-    color: #D97706;
-}
-.navbar-logo .logo-text {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 600;
-    font-size: 18px; /* Adjusted font size for navbar */
-    fill: #333333;
-}
-.navbar-logo .logo-icon-skewer {
-    fill: #8D2B0B;
-}
-.navbar-logo .logo-icon-food {
-    fill: #D97706;
-    stroke: #8D2B0B;
-    stroke-width: 0.5;
-}
-/* Ensure SVG scales nicely if needed */
-.navbar-logo svg {
-     display: block; /* Prevents extra space below SVG */
+/* --- Floating Order Button --- */
+.order-now-btn {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 40;
+    background-color: #fbbf24;
+    color: #18181b;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    letter-spacing: 0.025em;
 }
 
+.order-now-btn:hover,
+.order-now-btn:focus {
+    background-color: #d97706;
+    color: #ffffff;
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    outline: none;
+}
+
+/* --- About Us Section & Text Column --- */
 .text-column {
-    flex: 1 1 70%; /* Grow, shrink, base width 70% (takes remaining space) */
-    /*background-color: #d8f2f2; /* Dark background for text area */
-    padding: 60px 80px; /* Generous padding inside the text column */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center text block vertically */
-}
-
-.text-column h2 {
-    text-align: center;
-    font-size: 2.5rem; /* Adjust size */
-    margin-bottom: 15px;
-    font-weight: bold; /* Or adjust as needed */
-    /*text-transform: uppercase;*/
-}
-
-.text-column h3 {
-    text-align: center;
-    font-size: 1.5rem; /* Adjust size */
-    margin-bottom: 5px;
-    font-weight: normal; /* Adjust as needed */
-}
-
-.text-column .subheading {
-    text-align: center;
-    font-size: 1.1rem; /* Adjust size */
-    color: #cccccc; /* Slightly lighter color */
-    margin-bottom: 30px;
-    font-style: italic; /* Make italic */
-}
-
-.text-column .intro-paragraph {
-    text-align: center; /* Center the first paragraph */
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    font-weight: bold; /* Bolder intro text */
-    color: #D97706;
-}
-
-.text-column p {
-    font-size: 1rem; /* Standard text size */
-    margin-bottom: 20px;
-    /* text-align: justify; */ /* Optional: Justify text */
-}
-
-
-/* --- About Us Section Styling --- */
-.about-section {
-    display: flex;
-    min-height: 80vh;
-    /* Remove the default color here if it was set, as text color is handled below */
-    /* color: white;  <-- REMOVE or comment out this line */
-}
-
-
-
-.text-column {
-    flex: 1 1 70%;
-    /* CHANGE Background Color to Light */
-    background-color: #f8f8f8; /* Light grey background (or use #ffffff for pure white) */
-    padding: 60px 80px;
+    background-color: #ffffff;
+    padding: 32px 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* CHANGE Default Text Color to Dark */
-    color: #333333; /* Dark grey text color */
+    color: #374151;
+}
+
+@media (min-width: 768px) {
+    .text-column {
+        padding: 56px 64px;
+    }
 }
 
 .text-column h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    font-weight: bold;
+    font-size: 2.25rem;
+    margin-bottom: 8px;
+    font-weight: 800;
     text-transform: uppercase;
-    /* Ensure text color is dark (inherits from .text-column or set explicitly) */
-    /* color: #333333; */ /* Not needed if parent .text-column sets it */
-}
-
-.text-column h3 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    font-weight: normal;
-     /* Ensure text color is dark */
-    /* color: #333333; */
+    color: #1f2937;
+    letter-spacing: 0.025em;
 }
 
 .text-column .subheading {
     text-align: center;
     font-size: 1.1rem;
-    /* CHANGE Color for subheading */
-    color: #555555; /* Slightly lighter dark grey for subheading */
-    margin-bottom: 30px;
+    color: #6b7280;
+    margin-bottom: 24px;
     font-style: italic;
 }
 
 .text-column .intro-paragraph {
     text-align: center;
     font-size: 1.1rem;
-    margin-bottom: 25px;
-    font-weight: bold;
-     /* Ensure text color is dark */
-     /* color: #333333; */
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #d97706;
+    line-height: 1.6;
 }
 
 .text-column p {
     font-size: 1rem;
-    margin-bottom: 20px;
-     /* Ensure text color is dark */
-     /* color: #333333; */
-}
-.menu-section {
-    width: 100%;        /* Section takes full width */
-    height: 200vh;       /* Section takes full viewport height */
-    padding: 40px;         /* Remove any default padding */
-    overflow: hidden;   /* Hide any potential overflow from the section itself */
-    background-image: url('images/arabian1.jpg'); /* Set pattern image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; /* Do not repeat the image */
-    /* Ensure box-sizing is correct (already set globally) */
-    box-sizing: border-box;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    color: #4b5563;
 }
 
-.menu-section iframe {
-    width: 100%;        /* Iframe fills the section width */
-    height: 100%;       /* Iframe fills the section height */
-    border: none;       /* Remove default iframe border */
-    display: block;     /* Ensure iframe behaves like a block element */
-}
-
-/* Optional: Add a background color to the section in case the iframe is slow to load */
- .menu-section {
-    background-color: #e0e0e0;
-} 
-
-/* --- Basic Reset & Body Layout --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: sans-serif;
-    line-height: 1.6;
-    /* Remove background color if set previously */
-    /* background-color: #f4f4f4; */
-}
-
-/* Add Flex Layout specifically for pages needing header-content-footer */
-.body-flex-layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 200vh; /* Ensure body takes at least full viewport height */
-}
-
-/* --- Fullscreen Iframe Container Styling (menu.html) --- */
-.iframe-container-fullscreen {
-    flex-grow: 2; /* Allows this container to take up remaining vertical space */
-    display: flex; /* Use flex to make the iframe fill this container */
-    overflow: hidden; /* Prevent potential scrollbars on the container */
-    /* Add padding-top if your fixed header is part of the flow
-       If the hamburger button is truly fixed and out of flow, this isn't needed */
-    /* padding-top: 60px; */ /* Example if header had 60px height */
-}
-
-.iframe-container-fullscreen iframe {
-    flex-grow: 1; /* Make iframe fill the container */
-    width: 100%;
-    height: 75vh;
-    border: none; /* Remove default iframe border */
-    display: block;
-}
-
-
-/* --- Footer Styling --- */
-.main-footer {
-    background-color: #333; /* Dark background */
-    color: #ccc; /* Light grey text */
-    padding: 25px 20px;
-    text-align: center;
-    flex-shrink: 0; /* Prevent footer from shrinking on short content pages */
-}
-
-.social-links {
-    margin-bottom: 15px;
-}
-
-.social-links a {
-    color: #ccc;
-    text-decoration: none;
-    margin: 0 10px; /* Space between links */
-    font-size: 1rem; /* Adjust as needed */
-    transition: color 0.2s ease;
-}
-
-.social-links a:hover,
-.social-links a:focus {
-    color: white; /* Brighter color on hover */
-}
-
-/* Styles for Font Awesome icons if used */
-/* .social-links i { font-size: 1.5rem; } */
-
-.copyright {
-    font-size: 0.9rem;
-    margin-top: 10px;
-}
-
-
-
-
-.order-now-btn {
-    position: fixed; /* Keep it fixed relative to the viewport */
-    bottom: 8%;       /* Align vertically with hamburger button */
-    /* Adjust right positioning to avoid overlap with hamburger */
-    /* Hamburger is at right: 20px, width: 40px. Add some space */
-    right: 45%;     /* Example: 20px (hamburger) + 40px (hamburger width) + 20px (spacing) */
-    z-index: 1001;   /* Ensure it's above other content, same level as hamburger */
-
-    /* Button Appearance */
-    background-color: #fde966; /* Example Green color */
-    color: rgb(19, 17, 17);
-    padding: 12px 24px; /* Adjust padding */
-    border-radius: 30px; /* Make it pill-shaped or adjust */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    box-shadow: 0 3px 7px rgba(0,0,0,0.3);;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: inline-flex; /* Helps align icon and text if used */
-    align-items: center;
-    gap: 5px; /* Space between icon and text if used */
-
-
-}
-
-.order-now-btn:hover,
-.order-now-btn:focus {
-    background-color: #e4e1dd; /* Darker shade on hover/focus */
-    color: white;
-    transform: translateY(-1px); /* Slight lift effect */
-    outline: none;
-}
-
-/* Optional: Style for Font Awesome icon if used */
-/* .call-now-btn i { font-size: 1rem; } */
-
-
-/* --- Responsive Adjustments (Consideration) --- */
-@media (max-width: 480px) {
-    /* On very small screens, the two buttons might be too close */
-    .call-now-btn {
-        /* Option 1: Reduce size/padding */
-         padding: 8px 12px;
-         font-size: 0.8rem;
-         right: 70px; /* Adjust spacing */
-        /* Option 2: Hide text, show only icon */
-        /* .call-now-btn span { display: none; } */
-        /* .call-now-btn { padding: 8px 10px; right: 70px; } */
-        /* Option 3: Stack them or move one (more complex) */
-    }
-    /* Adjust hamburger position if needed */
-    /* .hamburger-btn { right: 15px; } */
-}
-
-.home_top_left{
-    top: 135px;
-    right: 5px;
-    position: relative;
-    margin: 15px;
-    font-size: xx-large;
-    font-family: "Special Gothic Expanded One", sans-serif; ;
-}
-/* Target the specific list using its class */
+/* --- Checkmark List --- */
 .checkmark-list {
-  list-style: none; /* Remove the default bullet points (dots, circles, etc.) */
-  padding-left: 0;  /* Remove the default browser padding on the ul */
+    list-style: none;
+    padding-left: 0;
 }
 
-/* Style each list item */
 .checkmark-list li {
-  padding-left: 1.8em; /* Add padding to the left of the text to make space for the checkmark */
-  margin-bottom: 0.5em; /* Optional: Add some space between list items */
-  position: relative;   /* Crucial: Establishes a positioning context for the ::before pseudo-element */
+    padding-left: 1.85em;
+    margin-bottom: 0.75em;
+    position: relative;
+    line-height: 1.5;
 }
 
-/* Create and style the checkmark using ::before */
 .checkmark-list li::before {
-  content: '✓'; /* The checkmark character (you can also use ✔ or ✅) */
-  /* Alternative using emoji: content: '✅'; */
-
-  position: absolute; /* Position the checkmark relative to the li */
-  left: 0;          /* Place it at the very left edge of the li (within its padding) */
-  top: 0;           /* Align it vertically (adjust slightly if needed, e.g., top: 0.1em;) */
-
-  color: green;     /* Set the color of the checkmark */
-  font-weight: bold;/* Optional: Make the checkmark bolder */
-  font-size: 1.1em; /* Optional: Adjust the size relative to the list item text */
-
-  /* Ensure consistent width for alignment (optional but good practice) */
-  display: inline-block;
-  width: 1em;
-  text-align: center;
-}
-.halal-logo {
-    
-    top: 7px;    /* Align top with Sufra logo */
-    left: 4px;   /* Position from left edge */
-    height: 60px; /* Adjust size as needed */
-    width: auto;  /* Maintain aspect ratio */
-    z-index: 1001;   /* Match Sufra logo */
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #16a34a;
+    font-weight: 800;
+    font-size: 1.15em;
+    display: inline-block;
+    width: 1em;
+    text-align: center;
 }
 
+/* --- Mobile Responsive Rules --- */
+@media (max-width: 768px) {
+    .home-section {
+        min-height: 65vh;
+    }
 
-.contact-buttons-container {
-    display: flex;
-    gap: 2px; /* Space between buttons */
-    padding: 10px; /* Space from the top */
-}
+    .fixed-logo-img {
+        top: 20px;
+        right: 20px;
+        height: 18%;
+        max-height: 110px;
+    }
 
-.contact-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 10px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    z-index: 1001;
-}
+    .home_top_left {
+        top: 70px;
+        left: 20px;
+        font-size: 1.35rem;
+    }
 
-.call-button {
-    background-color: #007bff; /* Blue color for call */
-}
-
-.whatsapp-button {
-    background-color: #25D366; /* Green color for WhatsApp */
-}
-
-.icon {
-    
-    font-size: 1.2em; /* Adjust icon size */
+    .halal-logo {
+        height: 40px;
+    }
 }
